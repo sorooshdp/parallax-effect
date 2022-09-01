@@ -2,14 +2,14 @@
  * @description pass an array and get a random item.
  * @param {Array} array
  * @return {any}
-*/
-const getRandomArrayElement = function(array) {
-  return array[Math.floor(Math.random() * array.length)]
-}
+ */
+const getRandomArrayElement = function (array) {
+  return array[Math.floor(Math.random() * array.length)];
+};
 
-function randomBg() {
+function changeBackground() {
   // We use the const keyword cuz the variable value wouldn't change in the future.
-  const bigSize = [
+  const urls = [
     "url('../images/pic\ \(2275\).jpg')",
     "url('../images/pic\ \(2276\).jpg')",
     "url('../images/pic\ \(2278\).jpg')",
@@ -22,8 +22,10 @@ function randomBg() {
     "url('../images/pic\ \(2296\).jpg')",
     "url('../images/pic\ \(2297\).jpg')"
   ];
-  document.getElementsByClassName("header")[0].style.backgroundImage = getRandomArrayElement(bigSize);
-  document.getElementById("divContainer").style.backgroundImage = getRandomArrayElement(bigSize);
-  document.getElementById("buttonContainer").style.backgroundImage = getRandomArrayElement(bigSize);
-  document.getElementById("lastPart").style.backgroundImage = getRandomArrayElement(bigSize);
+
+  const headers = document.getElementsByClassName('header');
+
+  for (let i = 0; i < headers.length; i++) {
+    headers[i].style.backgroundImage = getRandomArrayElement(urls);
+  }
 }
